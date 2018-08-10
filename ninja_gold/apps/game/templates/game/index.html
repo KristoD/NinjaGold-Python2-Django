@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'game/css/styles.css' %}">
+</head>
+<body>
+    <div id="content">
+        <h1>Your Gold: {{ request.session.gold }}</h1>
+        <div class="games">
+            <h3>Farm</h3>
+            <p>(earns 10-20 gold)</p>
+            <form action="process/farm" method="POST">
+                {% csrf_token %}
+                <input type="submit" value="Find Gold!">
+            </form>
+        </div>
+        <div class="games">
+            <h3>Cave</h3>
+            <p>(earns 5-10 gold)</p>
+            <form action="process/cave" method="POST">
+                {% csrf_token %}
+                <input type="submit" value="Find Gold!">
+            </form>
+        </div>
+        <div class="games">
+            <h3>House</h3>
+            <p>(earns 2-5 gold)</p>
+            <form action="process/house" method="POST">
+                {% csrf_token %}
+                <input type="submit" value="Find Gold!">
+            </form>
+        </div>
+        <div class="games">
+            <h3>Casino</h3>
+            <p>(earns/takes 0-50 gold)</p>
+            <form action="process/casino" method="POST">
+                {% csrf_token %}
+                <input type="submit" value="Find Gold!">
+            </form>
+        </div>
+    </div>
+    <div id="log">
+        <form action="reset" method="POST">
+            {% csrf_token %}
+            <input type="submit" value="Reset">
+        </form>
+        {% for key in request.session.game_list %}
+            <p class="{{ key.0 }}">{{ key.1 }}</p>
+        {% endfor %}
+    </div>
+</body>
+</html>

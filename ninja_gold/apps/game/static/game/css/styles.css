@@ -1,0 +1,30 @@
+.won {
+    color: green;
+}
+
+.lose {
+    color: red;
+}
+
+.black {
+    color: black;
+}
+
+#content {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.games {
+    display: inline-block;
+    width: 20%;
+    margin: 0 auto;
+}
+
+#log {
+    /* vertical-align: top; */
+    overflow-y: scroll;
+    height: 200px;
+    width: 80%;
+    margin: 20px auto;
+}
